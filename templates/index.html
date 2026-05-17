@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ data.station_name }} Departures</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="container">
+        <header>
+            <h1>{{ data.station_name }}</h1>
+            <p>Updated at {{ data.updated_at }}</p>
+        </header>
+
+        <section class="departures">
+            <div class="card">
+                <h2>U-Bahn</h2>
+
+                {% for dep in data.ubahn %}
+                    <div class="departure">
+                        <div>
+                            <strong>{{ dep.line }}</strong>
+                            <span>{{ dep.destination }}</span>
+                        </div>
+                        <div class="time">
+                            {{ dep.minutes_left }} min
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="card">
+                <h2>Bus</h2>
+
+                {% for dep in data.bus %}
+                    <div class="departure">
+                        <div>
+                            <strong>{{ dep.line }}</strong>
+                            <span>{{ dep.destination }}</span>
+                        </div>
+                        <div class="time">
+                            {{ dep.minutes_left }} min
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+</body>
+</html>
