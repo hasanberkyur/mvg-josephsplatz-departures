@@ -49,6 +49,17 @@ header p {
     border-bottom: 1px solid #333;
 }
 
+.image-section {
+    margin-top: 32px;
+}
+
+.timetable-image {
+    width: 100%;
+    max-width: 900px;
+    border-radius: 16px;
+    display: block;
+}
+
 .departure:last-child {
     border-bottom: none;
 }
